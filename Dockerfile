@@ -28,4 +28,6 @@ EXPOSE 80
 
 COPY startup.sh .
 
+HEALTHCHECK --start-period=30s --interval=60s CMD curl --fail 127.0.0.1:3000 || exit 1
+
 CMD [ "bash", "startup.sh"]
